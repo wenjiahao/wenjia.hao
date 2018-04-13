@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <script type="text/javascript" src="./resources/jquery/jquery-2.1.4.js"></script>
+    <!-- <script type="text/javascript" src="./resources/js/index.js"></script> -->
+    <script type="text/javascript"
+            src="./resources/jquery/jquery.validate.js"></script>
+    <script type="text/javascript"
+            src="./resources/jquery/jquery.metadata.js"></script>
+    <script type="text/javascript" src="./fileUpload.js"></script>
+    <script type="text/javascript"
+            src="./resources/zeroClipBoard/jquery-confirm.js"></script>
+    <script type="text/javascript">
+        function sync() {
+            $.ajax({
+                url: '/sb/sb.action',
+                type: 'POST',
+                data: {www:"rrrr"},
+                success: function (returndata) {
+                    sync();
+                    console.log(returndata)
+                },
+                error: function (returndata) {
+                    sync();
+                    console.log(returndata)
+                }
+            });
+        }
+        $(function () {
+            $("#ajaxExport").click(function () {
+                sync();
+            });
+            $("#stopThread").click(
+                    function () {
+                        $.ajax({
+                            url: '/sb/stopThread.action',
+                            type: 'GET',
+                            data: {www:"rrrr"},
+                            success: function (returndata) {
+                                console.log(returndata)
+                            },
+                            error: function (returndata) {
+                                console.log(returndata)
+                            }
+                        });
+
+                    }
+
+            );
+            $("#startThread").click(
+                    function () {
+                        $.ajax({
+                            url: '/sb/startThread.action',
+                            type: 'GET',
+                            data: {www:"rrrr"},
+                            success: function (returndata) {
+                                console.log(returndata)
+                            },
+                            error: function (returndata) {
+                                console.log(returndata)
+                            }
+                        });
+
+                    }
+
+            );
+
+            $("#syncAction").click(
+                    function () {
+                        $.ajax({
+                            url: '/sb/syncAction.action',
+                            type: 'GET',
+                            data: {www:"rrrr"},
+                            success: function (returndata) {
+                                console.log(returndata)
+                            },
+                            error: function (returndata) {
+                                console.log(returndata)
+                            }
+                        });
+
+                    }
+            );
+
+
+        });
+    </script>
+    <style type="text/css"></style>
+</head>
+<body>
+<button id="ajaxExport">异步导出</button>
+<button id="stopThread">停止线程</button>
+<button id="startThread">开始线程</button>
+<button id="syncAction">同步线程</button>
+</body>
+</html>

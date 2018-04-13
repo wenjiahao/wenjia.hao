@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="wen.jia.hao.Dao.AcountDao">
+
+<select id="findAll" parameterType="Map" resultType="wen.jia.hao.entity.Sale" >
+    SELECT  * FROM  test
+    <if test="currentDate != currentDate ">
+    WHERE id =2
+</if>
+</select>
+    <insert id="insert" parameterType="wen.jia.hao.entity.Sale">
+        INSERT INTO test (name,saleCount) VALUES (#{name},#{saleCount})
+    </insert>
+
+    <select id="findStock" resultType="Integer">
+        SELECT stock from stock
+    </select>
+
+    <select id="sleepSecond" resultType="Long">
+        SELECT SLEEP(5)
+    </select>
+
+
+</mapper>

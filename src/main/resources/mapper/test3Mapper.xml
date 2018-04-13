@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="wen.jia.hao.Dao.Test3Dao">
+
+<select id="findAll" parameterType="Map" resultType="wen.jia.hao.entity.Test3Entity" >
+    SELECT  * FROM  test3
+</select>
+    <insert id="insert" parameterType="wen.jia.hao.entity.Test3Entity">
+        INSERT INTO test3 (name3,age3) VALUES (#{name3},#{age3})
+    </insert>
+</mapper>
